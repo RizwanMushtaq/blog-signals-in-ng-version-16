@@ -1,17 +1,18 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ActiveTab } from '../types/types';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <ul class="nav nav-pills nav-fill m-5">
+    <ul class="nav nav-pills nav-fill m-3">
       <li class="nav-item">
         <div
           class="nav-link"
-          [ngClass]="{ active: isSignalActive() }"
+          [ngClass]="{ active: activeTab === ActiveTab.Signals }"
           aria-current="page"
           (click)="onSignalClick()"
         >
@@ -21,7 +22,7 @@ import { Router } from '@angular/router';
       <li class="nav-item">
         <div
           class="nav-link"
-          [ngClass]="{ active: !isSignalActive() }"
+          [ngClass]="{ active: activeTab === ActiveTab.Classic }"
           (click)="onClassicClick()"
         >
           Classic Change Detection
@@ -42,24 +43,18 @@ import { Router } from '@angular/router';
     `,
   ],
 })
-export class NavComponent implements OnInit {
-  public isSignalActive = signal(true);
+export class NavComponent {
+  @Input() activeTab: ActiveTab;
+  @Output() onActiveTabChange = new EventEmitter<ActiveTab>();
+  public ActiveTab = ActiveTab;
 
   constructor(private router: Router) {}
 
-  public ngOnInit() {
-    this.isSignalActive.set(true);
-  }
-
   public onSignalClick(): void {
-    this.isSignalActive.set(true);
-    this.router.navigate(['/signals']);
-    console.log('isSignalsactive', this.isSignalActive());
+    this.onActiveTabChange.emit(ActiveTab.Signals);
   }
 
   public onClassicClick(): void {
-    this.isSignalActive.set(false);
-    this.router.navigate(['/classic']);
-    console.log('isSignalsactive', this.isSignalActive());
+    this.onActiveTabChange.emit(ActiveTab.Classic);
   }
 }

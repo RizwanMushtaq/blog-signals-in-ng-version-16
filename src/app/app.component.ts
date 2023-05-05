@@ -6,15 +6,12 @@ import {
   NgSwitchCase,
   NgClass,
 } from '@angular/common';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent } from './components/nav.component';
 
 @Component({
   standalone: true,
   selector: 'app-root',
-  template: `
-    <app-nav></app-nav>
-    <router-outlet></router-outlet>
-  `,
+  template: ` <router-outlet></router-outlet> `,
   styles: [],
   imports: [
     NgSwitch,

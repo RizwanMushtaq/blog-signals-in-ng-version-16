@@ -1,22 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignalsComponent } from './signals.component';
-import { ClassicComponent } from './classic.component';
 import { PageNotFoundComponent } from './page-not-found.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: 'signals',
-    component: SignalsComponent,
-  },
-  {
-    path: 'classic',
-    component: ClassicComponent,
-  },
-  {
     path: '',
-    redirectTo: '/signals',
-    pathMatch: 'full',
+    component: HomeComponent,
   },
   { path: '**', component: PageNotFoundComponent },
 ];
