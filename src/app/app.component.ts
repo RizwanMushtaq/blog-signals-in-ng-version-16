@@ -1,20 +1,29 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { NgSwitch, NgSwitchDefault, NgSwitchCase } from '@angular/common';
+import {
+  NgSwitch,
+  NgSwitchDefault,
+  NgSwitchCase,
+  NgClass,
+} from '@angular/common';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   standalone: true,
   selector: 'app-root',
   template: `
-    <nav class="bg-primary">
-      <div class="container-fluid text-light">
-        <a>Signals</a>
-        <a>Classic</a>
-      </div>
-    </nav>
+    <app-nav></app-nav>
     <router-outlet></router-outlet>
   `,
   styles: [],
-  imports: [NgSwitch, NgSwitchDefault, NgSwitchCase, RouterOutlet, RouterLink],
+  imports: [
+    NgSwitch,
+    NgSwitchDefault,
+    NgSwitchCase,
+    RouterOutlet,
+    RouterLink,
+    NgClass,
+    NavComponent,
+  ],
 })
 export class AppComponent {}
