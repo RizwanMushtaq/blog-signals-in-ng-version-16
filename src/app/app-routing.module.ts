@@ -1,22 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegistrationComponent } from './pages/registration/registration.component';
+import { SignalsComponent } from './signals.component';
+import { ClassicComponent } from './classic.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 
 const routes: Routes = [
   {
+    path: 'signals',
+    component: SignalsComponent,
+  },
+  {
+    path: 'classic',
+    component: ClassicComponent,
+  },
+  {
     path: '',
-    component: HomeComponent,
+    redirectTo: '/signals',
+    pathMatch: 'full',
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'registration',
-    component: RegistrationComponent,
-  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

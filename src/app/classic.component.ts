@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-classic',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  template: ` <p>classic works!</p> `,
+  styles: [],
 })
-export class LoginComponent {
-
-}
+export class ClassicComponent {}

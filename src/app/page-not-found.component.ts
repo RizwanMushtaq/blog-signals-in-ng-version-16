@@ -2,10 +2,17 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-page-not-found',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  template: `
+    <p>
+      page-not-found works!
+    </p>
+  `,
+  styles: [
+  ]
 })
-export class HomeComponent {}
+export class PageNotFoundComponent {
+
+}
