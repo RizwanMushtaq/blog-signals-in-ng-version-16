@@ -31,15 +31,15 @@ import { NavComponent } from './nav.component';
   styles: [],
 })
 export class SignalsComponent {
-  actions = signal<string[]>([]);
-  counter = signal(0);
+  public actions = signal<string[]>([]);
+  public counter = signal(0);
 
-  increment() {
+  public increment(): void {
     this.counter.set(this.counter() + 1);
     this.actions.mutate((oldActions) => oldActions.push('INCREMENT'));
   }
 
-  decrement() {
+  public decrement(): void {
     this.counter.update((oldCounter) => oldCounter - 1);
     this.actions.update((oldActions) => [...oldActions, 'DECREMENT']);
   }

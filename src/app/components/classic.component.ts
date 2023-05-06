@@ -31,15 +31,15 @@ import { NavComponent } from './nav.component';
   styles: [],
 })
 export class ClassicComponent {
-  actions: string[] = [];
-  counter = 0;
+  public actions: string[] = [];
+  public counter = 0;
 
-  increment() {
+  public increment(): void {
     this.counter++;
     this.actions.push('INCREMENT');
   }
 
-  decrement() {
+  public decrement(): void {
     this.counter--;
     this.actions.push('DECREMENT');
   }
